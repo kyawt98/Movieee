@@ -10,8 +10,11 @@ import { Link } from "react-router-dom"
 const DetailMovie = () => {
     const { movie_id } = useParams()
     const [detail, setDetail] = useState([])
+    const [genre, setGenre] = useState([])
     const [trailerUrl, setTrailerUrl] = useState([])
     const [similars, setSimilars] = useState([])
+    const [companies, setCompanies] = useState([])
+    const [languages, setLanguages] = useState([])
 
     // console.log(movie_id);
     const fetchMovieDetail = `/movie/${movie_id}?api_key=${API_KEY}&append_to_response=videos`
@@ -30,6 +33,7 @@ const DetailMovie = () => {
             .catch(err => {
             console.error(err);
             })
+            return request
         }
         fechDetail()
         // console.log(`Detail Movie: ${detail.title}`);
@@ -41,7 +45,7 @@ const DetailMovie = () => {
     useEffect(() => {
         const fetchData = async(movie_id) => {
             const request = await axios.get(fetchTrailer)
-            console.log("trailers ",request.data.results)
+            // console.log("trailers ",request.data.results)
             setTrailerUrl(request.data.results)
             return request
         }
@@ -58,7 +62,30 @@ const DetailMovie = () => {
         }
         fetchData()
     }, [])
+
+    useEffect(() => {
+        const genreList = () => {
+            setGenre(detail.genres)
+        }
+        genreList()
+    }, [detail])
+
+    useEffect(() => {
+        const companyList = () => {
+            setCompanies(detail.production_companies)
+        }
+        companyList()
+    }, [detail])
+
+    useEffect(() => {
+        const languageList = () => {
+            setLanguages(detail.spoken_languages)
+        }
+        languageList()
+    }, [detail])
     
+    // console.log("company list", companies);
+
     return (
     <>
         { detail && (
@@ -86,40 +113,72 @@ const DetailMovie = () => {
                 </div>
                 <div className="detail__description">
                     <p className="detail__overview">{detail?.overview}</p>
-                    <div className="sub_description">
-                        {/* <div className="sub__description_box">
-                            <span className="desc_title">Genres: </span>
-                            { detail.genres.map((genre) => {
-                                
-                                return (
-                                    <>
-                                        <span className="detail__genres" key={genre?.id}>{genre?.name}</span>
-                                    </>
-                                )
-                            })}
-                        </div> */}
-                        {/* <div className="sub__description_box">
-                            <span className="desc_title">Production companies: </span>
-                            {detail.production_companies.map((company) => {
-                                return (
-                                    <>
-                                        <span className="company_name">{company.name}</span>
-                                    </>
-                                )
-                            })}
-                        </div> */}
-                    </div>       
+                         
                 </div>
             </div>
-                    
-            {/* <div className="detail__detail">
-                        {detail && <div className="images">
-                            {detail.}
-                </div>
-                            
-                }        
-            </div> */}
                 
+                    <div className="detail__banner">
+                        <div className="sub_description">
+                            <div className="sub__description_box">
+                                <span className="desc_title">Genres: </span>
+                                {genre && genre.map((gen) => {    
+                                    return (
+                                        <>
+                                            <span className="detail__genre" key={gen?.id}>{gen?.name}</span>
+                                        </>
+                                    )
+                                })}    
+                            </div>
+
+                            {detail.adult === true && <div className="sub__description_box">
+                                <span className="desc_title">Adult</span>
+                            </div>}
+
+                            <div className="sub__description_box">
+                                <span className="desc_title">Duration: </span>
+                                <span className="detail__des">{detail?.runtime} min</span>              
+                            </div>
+
+                            <div className="sub__description_box">
+                                <span className="desc_title">Rating: </span>
+                                <span className="detail__des">{detail?.vote_average}</span>              
+                            </div>
+
+                            <div className="sub__description_box">
+                                <span className="desc_title">Production companies: </span>
+                                {companies && companies.map((company) => {    
+                                    return (
+                                        <>
+                                            <span className="detail__des" key={company?.id}>{company?.name}</span>
+                                        </>
+                                    )
+                                })}               
+                            </div>
+
+                            <div className="sub__description_box">
+                                <span className="desc_title">Languages: </span>
+                                {languages && languages.map((language) => {    
+                                    return (
+                                        <>
+                                            <span className="detail__des" key={language?.id}>{language?.english_name}</span>
+                                        </>
+                                    )
+                                })}               
+                            </div>
+
+                            <div className="sub__description_box">
+                                <span className="desc_title">Released Date: </span>
+                                <span className="detail__des">{detail?.release_date}</span>              
+                            </div>
+
+                            <div className="sub__description_box">
+                                <span className="desc_title">Status: </span>
+                                <span className="detail__des">{detail?.status}</span>              
+                            </div>
+                        </div>
+                        {trailerUrl && <YouTube className="youtube" videoId={ trailerUrl[0]?.key || trailerUrl[1]?.key } opts={ opts }/>} 
+                    </div>
+
                 <h2 className="similar_label"> Similar Movies </h2>
   
                 <div className="detail__trailer_section">
@@ -127,14 +186,13 @@ const DetailMovie = () => {
                             {
                                 similars.map((similar) => {
                                     return (
-                                        <Link sensitive="true" to={`/detail/${similar.id}`}>
-                                        <img className="detail__similar" key={similar.id} src={`${IMAGE_BASE_URL}${similar.poster_path}`} />
+                                        <Link key={similar.id} sensitive="true" to={`/detail/${similar.id}`}>
+                                        <img className="detail__similar" src={`${IMAGE_BASE_URL}${similar.poster_path}`} />
                                         </Link>
                                     )
                                 })
                     }
                 </div>}
-                {trailerUrl && <YouTube className="youtube" videoId={ trailerUrl[0]?.key || trailerUrl[1]?.key } opts={ opts }/>}        
             </div>
             
         </div>

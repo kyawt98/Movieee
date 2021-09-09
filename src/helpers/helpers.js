@@ -9,9 +9,6 @@ export const truncate = (str, n) => {
 export const opts = {
     height: "100%",
     width: "100%",
-    control: 1,
-    showinfo: 0,
-    playsinline:0,
     playerVars: {
         autoplay: 1,
     }

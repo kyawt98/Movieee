@@ -1,0 +1,19 @@
+.footer {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.developer_name {
+  color: red;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 300ms ease;
+}
+.developer_name:hover {
+  opacity: 0.5;
+}

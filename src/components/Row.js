@@ -36,7 +36,10 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
                                 </Link>
                             </div>
                         )
-                }) }
+                })}
+                    <div className={`view_all_container ${isLargeRow && "view_all_container_large"}`}>
+                        <a className="view_all">View All</a>
+                    </div>
             </div>
         </div>
                 

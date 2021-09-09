@@ -11,6 +11,7 @@
   scrollbar-width: 1px;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  transition: opacity 800ms ease;
 }
 .row__posters::-webkit-scrollbar {
   display: none;
@@ -38,5 +39,38 @@
 
 .row__posterLarge:hover {
   transform: scale(1.08);
+  opacity: 1;
+}
+.view_all_container {
+  width: fit-content;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  z-index: 4;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 800ms ease;
+}
+
+.view_all_container_large {
+  height: 250px;
+}
+
+.view_all {
+  /* height: fit-content; */
+  background: red;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: opacity 300ms ease;
+}
+
+.view_all:hover {
+  opacity: 0.7;
+}
+
+.row__posters:hover .view_all_container {
   opacity: 1;
 }

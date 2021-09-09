@@ -68,6 +68,7 @@
   margin-right: 2rem;
   font-weight: 300;
 }
+
 .detail__description {
   width: 50%;
   height: max-content;
@@ -79,6 +80,7 @@
 
 .label {
   font-weight: bold;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .rating {
@@ -135,12 +137,7 @@
   align-items: center;
   background: transparent;
 }
-.youtube {
-  width: 500px;
-  height: 300px;
-  border: none;
-  z-index: 5;
-}
+
 .detail__similars {
   width: 100%;
   height: 100%;
@@ -157,6 +154,7 @@
 }
 .similar_label {
   margin: 1rem 2rem;
+  padding-top: 2rem;
 }
 .detail__similar {
   width: 200px;
@@ -178,11 +176,71 @@
   height: 7.4rem;
   bottom: 0;
   left: 0;
-  margin-top: -5.5rem;
+  margin-top: -6.5rem;
   background-image: linear-gradient(
     180deg,
     transparent,
     rgba(37, 37, 37, 0.4678),
     #000
   );
+}
+
+.detail__banner {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  margin: 0.5rem 3rem;
+  justify-content: space-between;
+  position: relative;
+}
+
+.youtube {
+  width: 500px;
+  height: 300px;
+  border: none;
+  z-index: 5;
+  margin-right: 5rem;
+}
+
+.sub_description {
+  height: 100%;
+  width: 50%;
+}
+.sub__description_box {
+  width: 100%;
+  margin: 1rem 0;
+}
+.desc_title {
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+}
+.detail__genre {
+  margin: 0 0.2rem;
+  position: relative;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.2rem 0.5rem;
+  background: red;
+  border-radius: 15px;
+}
+
+.detail__des {
+  font-weight: 600;
+  margin: 0 0.2rem;
+  padding: 0.2rem 0.3rem;
+  line-height: 1.8;
+  border-radius: 25px;
+  white-space: break-spaces;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.detail__banner::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  margin: -1rem 3rem;
 }

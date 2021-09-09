@@ -13,7 +13,7 @@ const Home = () => {
             <Row title="Comdey" fetchUrl={ requests.fetchComedyMovies }/>
             <Row title="Horror" fetchUrl={ requests.fetchHorrorMovies }/>
             <Row title="Romance" fetchUrl={requests.fetchRomanceMovies} />
-            <Row title="Documentaries" fetchUrl={requests.fetchDocmentaries} />
+            <Row title="Documentaries" fetchUrl={requests.fetchDocmentaries} isLargeRow/>
         </>
     )
 }

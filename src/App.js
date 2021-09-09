@@ -7,6 +7,7 @@ import {
 import Home from './pages/Home';
 import DetailMovie from './components/DetailMovie';
 import Nav from './components/Nav';
+import Footer from './components/Footer';
 function App() {
   return (
     <div className="app"> 
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/" component={ Home } />
           <Route path="/detail/:movie_id" component={ DetailMovie } />
         </Switch>
+        <Footer/>
       </Router>
     </div>
   );
