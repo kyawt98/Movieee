@@ -14,4 +14,5 @@ body {
   color: var(--text-color);
   background: var(--background-color);
   overflow-x: hidden;
+  font-family: "Arapey", serif;
 }

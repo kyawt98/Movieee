@@ -1,8 +1,10 @@
 import Row from "../components/Row"
 import requests from "../services/requests"
+import Banner from "../components/Banner"
 const Home = () => {
     return (
         <>
+            <Banner />
             <Row title="Netflix Originals" fetchUrl={requests.fetchOriginals}
             isLargeRow/>
             <Row title="Trending Now" fetchUrl={requests.fetchTrending} />

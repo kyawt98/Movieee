@@ -1,0 +1,65 @@
+.banner {
+  height: 448px;
+  object-fit: contain;
+  color: #fff;
+  filter: saturate(1);
+}
+
+.banner__contents {
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.banner__title {
+  font-size: 3.5rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 1px 1px 1px rgba(37, 37, 37, 0.61);
+}
+
+.banner__buttons {
+  width: fit-content;
+  margin: 1rem 0;
+}
+.banner__button {
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 3px 2px 5px rgba(37, 37, 37, 0.61);
+}
+
+.play {
+  background: red;
+  transition: opacity 300ms ease;
+}
+.play:hover {
+  opacity: 0.6;
+}
+
+.banner__description {
+  width: 50%;
+  line-height: 1.5;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 1px rgba(37, 37, 37, 0.61);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.banner--fadeBottom {
+  width: 100%;
+  height: 7.4rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.61),
+    #000
+  );
+}

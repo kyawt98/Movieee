@@ -30,9 +30,9 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
                     return  (
                             <div className="row__poster_container" key={data.id}>
                                 <Link to={`/detail/${data.id}`}>
-                                    <img
+                                <img
                                     className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-                                    src={`${IMAGE_BASE_URL}${isLargeRow ? data.poster_path : data.backdrop_path}`} alt={data.name} />
+                                    src={`${IMAGE_BASE_URL}${isLargeRow ? data?.poster_path : data?.backdrop_path || data?.poster_path}`} alt={data.name} />
                                 </Link>
                             </div>
                         )

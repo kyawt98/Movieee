@@ -1,0 +1,15 @@
+.nav {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  height: fit-content;
+}
+.logo {
+  width: 120px;
+  height: 120px;
+  filter: saturate(1);
+  cursor: pointer;
+  object-fit: contain;
+  margin: 0 2rem;
+}

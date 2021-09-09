@@ -1,10 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arapey&family=Luckiest+Guy&display=swap");
+
 .detail {
   width: 100%;
-  height: 100%;
+  height: max-content;
 }
 .detail__img {
   width: 100vw;
-  height: 100vh;
+  height: 550px;
   position: relative;
   opacity: 0.4;
 }
@@ -35,6 +38,7 @@
   text-transform: uppercase;
   position: relative;
   margin-bottom: 1rem;
+  font-family: "Luckiest Guy", cursive;
 }
 
 .detail__title::before {
@@ -48,10 +52,11 @@
 }
 
 .tagline {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-transform: none;
   font-weight: 300;
   margin-bottom: 1rem;
+  font-family: "Arapey", serif;
 }
 
 .detail__labels {
@@ -67,7 +72,8 @@
   width: 50%;
   height: max-content;
   padding: 0 3rem;
-  line-height: 1.8;
+  font-size: clamp(1.2rem, 50vw, 1rem);
+  line-height: 1.5;
   margin-top: 1rem;
 }
 
@@ -88,17 +94,95 @@
   margin-bottom: 1rem;
 }
 
+.detail__buttons {
+  margin: 1rem 0;
+}
+
 .detail__trailer {
-  padding: 0.5rem 1rem;
+  width: max-content;
+  padding: 0.5rem 1.5rem;
   border-radius: 5px;
   color: rgba(255, 255, 255, 0.6);
   border: 1px solid #fff;
-  transition: background 450ms ease-in-out;
+  transition: background 500ms ease-in-out;
   cursor: pointer;
   text-transform: uppercase;
 }
 
 .detail__trailer:hover {
-  background: red;
+  background: #fff;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.detail__play {
+  width: max-content;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 0.8);
+  background: #fff;
+  transition: background 500ms ease-in-out;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-right: 1rem;
+}
+
+.detail__trailer_section {
+  width: 100%;
+  height: max-content;
   border: none;
+  display: flex;
+  margin: 0;
+  align-items: center;
+  background: transparent;
+}
+.youtube {
+  width: 500px;
+  height: 300px;
+  border: none;
+  z-index: 5;
+}
+.detail__similars {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 0 2rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.detail__similars::-webkit-scrollbar {
+  display: none;
+}
+.similar_label {
+  margin: 1rem 2rem;
+}
+.detail__similar {
+  width: 200px;
+  height: 250px;
+  margin-bottom: 1rem;
+  margin-right: -1rem;
+  object-fit: contain;
+  scroll-behavior: smooth;
+  transition: transform 450ms;
+  cursor: pointer;
+}
+
+.detail__similar:hover {
+  transform: scale(1.09);
+}
+
+.detail--fadeBottom {
+  width: 100%;
+  height: 7.4rem;
+  bottom: 0;
+  left: 0;
+  margin-top: -5.5rem;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.4678),
+    #000
+  );
 }
