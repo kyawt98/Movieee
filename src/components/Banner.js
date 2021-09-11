@@ -24,6 +24,7 @@ const Banner = () => {
         <header className="banner"
             style={{
                 backgroundSize: "cover",
+                width: "100vw",
                 backgroundImage: `url(
                     "${IMAGE_BASE_URL}${movie?.backdrop_path}"
                 )`

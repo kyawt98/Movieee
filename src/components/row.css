@@ -74,3 +74,13 @@
 .row__posters:hover .view_all_container {
   opacity: 1;
 }
+
+@media only screen and (max-width: 768px) {
+  .row__posters {
+    padding-left: 0;
+  }
+
+  .row h2 {
+    font-size: 1.2rem;
+  }
+}

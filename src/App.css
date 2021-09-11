@@ -8,11 +8,18 @@
   margin: 0;
   padding: 0;
 }
+
+html {
+  overflow-x: hidden;
+}
 body {
   scroll-behavior: smooth;
   box-sizing: border-box;
   color: var(--text-color);
   background: var(--background-color);
-  overflow-x: hidden;
   font-family: "Arapey", serif;
+}
+
+.app {
+  overflow-x: hidden;
 }

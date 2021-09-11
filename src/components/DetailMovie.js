@@ -108,16 +108,15 @@ const DetailMovie = () => {
                         
                         <span className="detail__label runtime">Duration: <span className="label">{detail?.runtime} min</span></span>
                         
-                        <span className="detail__label">Rating: <span className="rating">{detail?.vote_average}</span></span>
+                        <span className="detail__label">Rating: <span className="label rating">{detail?.vote_average}</span></span>
                     </div>
                 </div>
                 <div className="detail__description">
-                    <p className="detail__overview">{detail?.overview}</p>
-                         
+                    <p className="detail__overview">{detail?.overview}</p>                       
                 </div>
             </div>
                 
-                    <div className="detail__banner">
+            <div className="detail__banner">
                         <div className="sub_description">
                             <div className="sub__description_box">
                                 <span className="desc_title">Genres: </span>
@@ -177,7 +176,7 @@ const DetailMovie = () => {
                             </div>
                         </div>
                         {trailerUrl && <YouTube className="youtube" videoId={ trailerUrl[0]?.key || trailerUrl[1]?.key } opts={ opts }/>} 
-                    </div>
+                    </div>            
 
                 <h2 className="similar_label"> Similar Movies </h2>
   
